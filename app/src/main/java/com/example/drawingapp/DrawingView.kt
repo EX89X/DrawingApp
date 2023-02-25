@@ -7,8 +7,10 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
+import java.lang.ProcessBuilder.Redirect.Type
 
 
 class DrawingView(context:Context,attrs:AttributeSet):View(context,attrs) {
@@ -36,7 +38,7 @@ class DrawingView(context:Context,attrs:AttributeSet):View(context,attrs) {
           mDrawPaint!!.strokeJoin=Paint.Join.ROUND
           mDrawPaint!!.strokeCap=Paint.Cap.ROUND
           mCanvasPaint=Paint(Paint.DITHER_FLAG)
-          mBrusheSize=20.toFloat()
+         // mBrusheSize=20.toFloat()
           paths
 
 
@@ -99,6 +101,12 @@ class DrawingView(context:Context,attrs:AttributeSet):View(context,attrs) {
         }
         invalidate()
         return true
+    }
+
+    fun setSizeForBrush(newSize:Float){
+        mBrusheSize=TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+        newSize,resources.displayMetrics)
+        mDrawPaint!!.strokeWidth=mBrusheSize
     }
 
 
