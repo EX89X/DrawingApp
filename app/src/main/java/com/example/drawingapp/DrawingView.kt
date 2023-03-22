@@ -1,5 +1,6 @@
 package com.example.drawingapp
 
+import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -118,4 +119,7 @@ class DrawingView(context:Context,attrs:AttributeSet):View(context,attrs) {
      internal inner class CustomPth(var color:Int,var brushThickness:Float):Path(){
 
      }
+
+
+
 }
